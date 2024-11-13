@@ -11,6 +11,10 @@ package com.mycompany.mainposta;
 public class MainPosta {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        ListaClienti listaClienti = new ListaClienti();
+        Thread arriviThread = new Thread(new Arrivi(listaClienti));
+        Thread sporttelloThread = new Thread(new Sportello(ListaClienti));
+        arriviThread.start();
+        sportelloThread.start();
     }
 }
