@@ -13,8 +13,12 @@ public class MainPosta {
     public static void main(String[] args) {
         ListaClienti listaClienti = new ListaClienti();
         Thread arriviThread = new Thread(new Arrivi(listaClienti));
-        Thread sporttelloThread = new Thread(new Sportello(ListaClienti));
+        ArrayList<Thread> sportelloThreadList = new ArrayList<Thread>();
         arriviThread.start();
-        sportelloThread.start();
+        for (int i=0; i<NumeroSprotelli; i++){
+           Thread sporttelloThread = new Thread(new Sportello(ListaClienti, i+1));
+            sportelloThreadList.add(sportelloThread);
+            sportelloThread.start();
+        }
     }
 }
