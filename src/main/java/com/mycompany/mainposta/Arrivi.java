@@ -12,7 +12,7 @@ package com.mycompany.mainposta;
 public class Arrivi implements Runnable{
     private ListaClienti listaClienti;
     private final int attesaArrivi=2000;
-    public Arrivi (ListaClienti listaclienti){
+    public Arrivi (ListaClienti listaClienti){
         this.listaClienti=listaClienti;
     }
     
